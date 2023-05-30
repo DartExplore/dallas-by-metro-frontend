@@ -1,9 +1,72 @@
+/* basic colors, margins, etc. */
 body {
   background-color: #ffffff;
 }
 
+main {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
 h2 {
-  color: #00ff00;
+  color: #000000;
+  text-align: center;
+}
+
+header, section {
+  padding-bottom: 2em;
+}
+
+/* grid styling */
+.basic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* card styling */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card p {
+  text-align: center;
+}
+.card button {
+  width: 10em;
+  margin: auto;
+}
+
+/* explore downtown styling */
+/* popular destinations styling */
+.destination-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.destination-item {
+  width: 128px;
+  height: 128px;
+  background-image: url("assets/react.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px black solid;
+}
+
+/* planner styling */
+#planner .basic-grid form, #planner .basic-grid .map {
+  border: 2px black solid;
+}
+#planner .basic-grid .map {
+  height: 30em;
+}
+
+/* contact us styling */
+/* footer styling */
+/* media queries */
+@media (max-width: 768px) {
+  .basic-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

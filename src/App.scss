@@ -1,10 +1,81 @@
 $primary-color: #ffffff;
-$secondary-color: #00ff00;
+$secondary-color: #000000;
 
+/* basic colors, margins, etc. */
 body {
   background-color: $primary-color;
 }
 
+main {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
 h2 {
   color: $secondary-color;
+  text-align: center;
+}
+
+header, section {
+    padding-bottom: 2em;
+}
+
+/* grid styling */
+.basic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* card styling */
+.card {
+    display: flex;
+    flex-direction: column;
+    p {
+        text-align: center;
+    }
+    button {
+        width: 10em;
+        margin: auto;
+    }
+}
+
+/* explore downtown styling */
+
+/* popular destinations styling */
+.destination-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.destination-item{
+    width: 128px;
+    height: 128px;
+    background-image: url('assets/react.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px black solid;
+}
+
+/* planner styling */
+#planner {
+    .basic-grid {
+        form, .map {
+            border: 2px black solid;
+        }
+        .map {
+            height: 30em;
+        }
+    }
+}
+
+/* contact us styling */
+
+/* footer styling */
+
+
+/* media queries */
+@media (max-width: 768px) {
+    .basic-grid {
+        grid-template-columns: 1fr;
+    }
 }
