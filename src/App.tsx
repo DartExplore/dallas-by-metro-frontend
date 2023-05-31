@@ -1,4 +1,5 @@
 import './App.css'
+import Destination from './components/Destination'
 import att from './assets/att_disc2.jpg'
 import skyline_art from './assets/skyline_art.png'
 
@@ -32,15 +33,14 @@ function App() {
         <section id='popular_destinations'>
           <h2>Popular Destinations</h2>
           <div className='destination-container'>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
+            <Destination />
+            <Destination />
+            <Destination />
+            <Destination />
+            <Destination />
+            <Destination />
+            <Destination />
+            <Destination />
           </div>
         </section>
         

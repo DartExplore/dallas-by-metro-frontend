@@ -1,0 +1,12 @@
+.destination-item {
+  width: 128px;
+  height: 128px;
+  background-image: url("../assets/react.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px black solid;
+  display: flex;
+  margin: auto;
+}
+
+/*# sourceMappingURL=destination.css.map */

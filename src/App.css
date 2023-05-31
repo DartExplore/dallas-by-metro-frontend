@@ -62,19 +62,10 @@ header img {
 /* popular destinations styling */
 .destination-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 1em;
-}
-
-.destination-item {
-  width: 128px;
-  height: 128px;
-  background-image: url("assets/react.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 2px black solid;
-  display: flex;
-  margin: auto;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 /* planner styling */
