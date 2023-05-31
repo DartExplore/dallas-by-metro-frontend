@@ -1,4 +1,5 @@
 import './App.css'
+import Destination from './components/Destination'
 import att from './assets/att_disc2.jpg'
 import skyline_art from './assets/skyline_art.png'
 
@@ -10,9 +11,9 @@ function App() {
         <header>
           <div className='card'>
             <h2>Dallas by Metro</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula varius nisi, sit amet fermentum
-              metus finibus non. Proin vel lectus a enim dignissim ultricies. Vestibulum convallis, lorem ac tristique
-              ultrices, ante metus luctus est, eu dictum erat tortor vitae purus.</p>
+            <p>Learn how to navigate the DART train system so that you can discover new places
+              and move around our city in a more eco-friendly fashion.
+            </p>
               <button type='submit'>Learn More</button>
           </div>
           
@@ -24,7 +25,9 @@ function App() {
 
           <div className='card'>
             <h2>Explore Downtown</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorem voluptatum doloremque cumque totam iste in repudiandae, accusamus possimus magni? Consequuntur repellat, commodi similique ducimus maiores neque beatae dignissimos a.</p>
+            <p>Download the GoPass app and take the train Downtown to enjoy all the sights and destinations that 
+              Downtown has to offer without the hastle of driving and parking in the busiest streets of Dallas.
+            </p>
             <button type='submit'>Explore Downtown</button>
           </div>
         </section>
@@ -32,15 +35,14 @@ function App() {
         <section id='popular_destinations'>
           <h2>Popular Destinations</h2>
           <div className='destination-container'>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
-            <div className='destination-item'></div>
+            <Destination image='urban.jpg' name='AT&T Discovery District' station='Akard' />
+            <Destination image='aquarium.jpg' name='Dallas Aquarium' station='West End' />
+            <Destination image='art_museum.jpg' name='Dallas Museum of Art' station='Pearl/Arts District' />
+            <Destination image='urban_park.jpg' name='Klyde Warren Park' station='Pearl/Arts District' />
+            <Destination image='basketball_stadium.jpg' name='American Airlines Stadium' station='Victory' />
+            <Destination image='street.jpg' name='Deep Ellum' station='Deep Ellum' />
+            <Destination image='texas_fair.jpg' name='Fair Park' station='Fair Park' />
+            <Destination image='zoo.jpg' name='Dallas Zoo' station='Dallas Zoo' />
           </div>
         </section>
         
