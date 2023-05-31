@@ -26,6 +26,8 @@ header, section {
 }
 .card p {
   text-align: center;
+  max-width: 30em;
+  margin: auto;
 }
 .card button {
   width: 10em;
