@@ -35,6 +35,14 @@ header, section {
   margin-bottom: 2em;
 }
 
+/* form styling */
+form {
+  /* vertically centered */
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 /* header styling */
 header {
   height: 100vh;
@@ -77,6 +85,11 @@ header img {
 }
 
 /* contact us styling */
+#contact_us {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 /* footer styling */
 /* media queries */
 @media (max-width: 768px) {

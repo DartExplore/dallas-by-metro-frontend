@@ -38,6 +38,14 @@ header, section {
     }
 }
 
+/* form styling */
+form {
+    /* vertically centered */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
 /* header styling */
 header {
     height: 100vh;
@@ -86,6 +94,10 @@ header {
 }
 
 /* contact us styling */
+#contact_us {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
 /* footer styling */
 
