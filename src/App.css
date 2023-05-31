@@ -3,11 +3,6 @@ body {
   background-color: #ffffff;
 }
 
-main {
-  margin-left: 10vw;
-  margin-right: 10vw;
-}
-
 h2 {
   color: #000000;
   text-align: center;
@@ -33,6 +28,18 @@ header, section {
 }
 .card button {
   width: 10em;
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+/* header styling */
+header {
+  height: 100vh;
+}
+header img {
+  width: 100%;
+  height: 70vh;
+  display: flex;
   margin: auto;
 }
 
@@ -64,8 +71,26 @@ header, section {
 /* footer styling */
 /* media queries */
 @media (max-width: 768px) {
+  /* display each element in its own row */
   .basic-grid {
     grid-template-columns: 1fr;
+  }
+  header .card {
+    margin-top: 10vh;
+  }
+  header img {
+    display: grid;
+    place-items: center;
+    height: 50vh;
+  }
+}
+/* we need to find a better solution; this is super hacky; want to try to maintain the aspect ratio of image */
+@media (max-width: 500px) {
+  header .card {
+    margin-top: 15vh;
+  }
+  header img {
+    height: 35vh;
   }
 }
 
