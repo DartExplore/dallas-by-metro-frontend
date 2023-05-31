@@ -1,6 +1,6 @@
 import './App.css'
-import logo from './assets/react.svg'
 import skyline from './assets/skyline_dark.jpg'
+import att from './assets/att_disc2.jpg'
 
 function App() {
 
@@ -20,9 +20,10 @@ function App() {
         </header>
 
         <section id='explore_downtown' className='basic-grid'>
-          <img src={logo} alt='Downtown Dallas.'></img>
+          <img src={att} alt='Downtown Dallas.'></img>
 
           <div className='card'>
+            <h2>Explore Downtown</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorem voluptatum doloremque cumque totam iste in repudiandae, accusamus possimus magni? Consequuntur repellat, commodi similique ducimus maiores neque beatae dignissimos a.</p>
             <button type='submit'>Explore Downtown</button>
           </div>
