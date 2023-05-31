@@ -11,9 +11,9 @@ function App() {
         <header>
           <div className='card'>
             <h2>Dallas by Metro</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula varius nisi, sit amet fermentum
-              metus finibus non. Proin vel lectus a enim dignissim ultricies. Vestibulum convallis, lorem ac tristique
-              ultrices, ante metus luctus est, eu dictum erat tortor vitae purus.</p>
+            <p>Learn how to navigate the DART train system so that you can discover new places
+              and move around our city in a more eco-friendly fashion.
+            </p>
               <button type='submit'>Learn More</button>
           </div>
           
@@ -25,7 +25,9 @@ function App() {
 
           <div className='card'>
             <h2>Explore Downtown</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorem voluptatum doloremque cumque totam iste in repudiandae, accusamus possimus magni? Consequuntur repellat, commodi similique ducimus maiores neque beatae dignissimos a.</p>
+            <p>Download the GoPass app and take the train Downtown to enjoy all the sights and destinations that 
+              Downtown has to offer without the hastle of driving and parking in the busiest streets of Dallas.
+            </p>
             <button type='submit'>Explore Downtown</button>
           </div>
         </section>
