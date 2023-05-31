@@ -1,6 +1,6 @@
 import './App.css'
-import skyline from './assets/skyline_dark.jpg'
 import att from './assets/att_disc2.jpg'
+import skyline_art from './assets/skyline_art.png'
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
               <button type='submit'>Learn More</button>
           </div>
           
-          <img src={skyline} alt='Dallas skyline.'></img>
+          <img src={skyline_art} alt='Dallas skyline.'></img>
         </header>
 
         <section id='explore_downtown' className='basic-grid'>
