@@ -1,10 +1,22 @@
+$background-color: #f1cd01;
+
 .destination-item {
-    width: 128px;
-    height: 128px;
-    background-image: url("../assets/react.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 90%;
+    height: 20em;
+    background-color: $background-color;
     border: 2px black solid;
     display: flex;
+    flex-direction: column;
     margin: auto;
+    #logo, svg, p, img {
+        display: flex;
+        margin: auto;
+    }
+    p {
+        text-align: center;
+    }
+    img {
+        height: 90%;
+        width: 80%;
+    }
   }

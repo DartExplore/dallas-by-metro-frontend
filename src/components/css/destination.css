@@ -1,12 +1,22 @@
 .destination-item {
-  width: 128px;
-  height: 128px;
-  background-image: url("../assets/react.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 90%;
+  height: 20em;
+  background-color: #f1cd01;
   border: 2px black solid;
   display: flex;
+  flex-direction: column;
   margin: auto;
+}
+.destination-item #logo, .destination-item svg, .destination-item p, .destination-item img {
+  display: flex;
+  margin: auto;
+}
+.destination-item p {
+  text-align: center;
+}
+.destination-item img {
+  height: 90%;
+  width: 80%;
 }
 
 /*# sourceMappingURL=destination.css.map */

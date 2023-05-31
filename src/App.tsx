@@ -33,14 +33,14 @@ function App() {
         <section id='popular_destinations'>
           <h2>Popular Destinations</h2>
           <div className='destination-container'>
-            <Destination />
-            <Destination />
-            <Destination />
-            <Destination />
-            <Destination />
-            <Destination />
-            <Destination />
-            <Destination />
+            <Destination image='urban.jpg' name='AT&T Discovery District' station='Akard' />
+            <Destination image='aquarium.jpg' name='Dallas Aquarium' station='West End' />
+            <Destination image='art_museum.jpg' name='Dallas Museum of Art' station='Pearl/Arts District' />
+            <Destination image='urban_park.jpg' name='Klyde Warren Park' station='Pearl/Arts District' />
+            <Destination image='basketball_stadium.jpg' name='American Airlines Stadium' station='Victory' />
+            <Destination image='street.jpg' name='Deep Ellum' station='Deep Ellum' />
+            <Destination image='texas_fair.jpg' name='Fair Park' station='Fair Park' />
+            <Destination image='zoo.jpg' name='Dallas Zoo' station='Dallas Zoo' />
           </div>
         </section>
         
