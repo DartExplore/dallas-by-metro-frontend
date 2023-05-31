@@ -1,12 +1,13 @@
 import './App.css'
 import logo from './assets/react.svg'
+import skyline from './assets/skyline_dark.jpg'
 
 function App() {
 
   return (
     <>
       <main>
-        <header className='basic-grid'>
+        <header>
           <div className='card'>
             <h2>Dallas by Metro</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula varius nisi, sit amet fermentum
@@ -15,7 +16,7 @@ function App() {
               <button type='submit'>Learn More</button>
           </div>
           
-          <img src={logo} alt='Dallas skyline.'></img>
+          <img src={skyline} alt='Dallas skyline.'></img>
         </header>
 
         <section id='explore_downtown' className='basic-grid'>
