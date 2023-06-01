@@ -3,7 +3,8 @@ import './css/Destination.css'
 interface DestinationProps {
     image : string,
     name : string,
-    station : string
+    station : string,
+    index : number
 }
 
 function Destination(props:DestinationProps) {

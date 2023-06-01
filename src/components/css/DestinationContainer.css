@@ -1,0 +1,18 @@
+/* popular destinations styling */
+.destination-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .destination-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=DestinationContainer.css.map */
