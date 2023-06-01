@@ -1,5 +1,6 @@
 import './App.css'
 import Destination from './components/Destination'
+import Card from './components/Card'
 import att from './assets/att_disc2.jpg'
 import skyline_art from './assets/skyline_art.png'
 
@@ -9,27 +10,22 @@ function App() {
     <>
       <main>
         <header>
-          <div className='card'>
-            <h2>Dallas by Metro</h2>
-            <p>Learn how to navigate the DART train system so that you can discover new places
-              and move around our city in a more eco-friendly fashion.
-            </p>
-              <button type='submit'>Learn More</button>
-          </div>
-          
+          <Card headerText='Dallas by Metro' 
+            description='Learn how to navigate the DART train system so that you can discover new places
+            and move around our city in a more eco-friendly fashion.'
+            buttonText='Learn More'
+          />
           <img src={skyline_art} alt='Dallas skyline.'></img>
         </header>
 
         <section id='explore_downtown' className='basic-grid'>
           <img src={att} alt='Downtown Dallas.'></img>
 
-          <div className='card'>
-            <h2>Explore Downtown</h2>
-            <p>Download the GoPass app and take the train Downtown to enjoy all the sights and destinations that 
-              Downtown has to offer without the hastle of driving and parking in the busiest streets of Dallas.
-            </p>
-            <button type='submit'>Explore Downtown</button>
-          </div>
+          <Card headerText='Explore Downtown'
+            description='Download the GoPass app and take the train Downtown to enjoy all the sights and destinations that 
+            Downtown has to offer without the hastle of driving and parking in the busiest streets of Dallas.'
+            buttonText='Explore Downtown'
+          />
         </section>
 
         <section id='popular_destinations'>
@@ -47,10 +43,10 @@ function App() {
         </section>
         
         <section id='planner'>
-          <div className='card'>
-            <h2>Create your own journey...</h2>
-            <p>With our carefully curated list you will find easily to get to and fun new locations.</p>
-          </div>
+          <Card headerText='Create your own journey...' 
+            description='With our carefully curated list you will find easily to get to and fun new locations.'
+            buttonText=''
+          />
           
           <div className='basic-grid'>
             <form action="#" method="POST">

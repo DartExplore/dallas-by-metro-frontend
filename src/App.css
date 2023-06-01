@@ -19,23 +19,6 @@ header, section {
   grid-template-columns: 1fr 1fr;
 }
 
-/* card styling */
-.card {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-}
-.card p {
-  text-align: center;
-  max-width: 30em;
-  margin: auto;
-}
-.card button {
-  width: 10em;
-  margin: auto;
-  margin-bottom: 2em;
-}
-
 /* form styling */
 form {
   /* vertically centered */
