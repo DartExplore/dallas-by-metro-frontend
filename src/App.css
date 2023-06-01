@@ -19,23 +19,6 @@ header, section {
   grid-template-columns: 1fr 1fr;
 }
 
-/* card styling */
-.card {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-}
-.card p {
-  text-align: center;
-  max-width: 30em;
-  margin: auto;
-}
-.card button {
-  width: 10em;
-  margin: auto;
-  margin-bottom: 2em;
-}
-
 /* form styling */
 form {
   /* vertically centered */
@@ -59,15 +42,6 @@ header img {
   width: 100%;
 }
 
-/* popular destinations styling */
-.destination-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  margin-left: 15vw;
-  margin-right: 15vw;
-}
-
 /* planner styling */
 #planner .basic-grid form, #planner .basic-grid .map {
   border: 2px black solid;
@@ -88,10 +62,6 @@ header img {
   /* display each element in its own row */
   .basic-grid {
     grid-template-columns: 1fr;
-  }
-  .destination-container {
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 

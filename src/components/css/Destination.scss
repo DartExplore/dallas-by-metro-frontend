@@ -1,4 +1,6 @@
 $background-color: #f1cd01;
+$secondary-color: #604675;
+$beige: #F5F5DC;
 
 .destination-item {
     width: 90%;
@@ -8,6 +10,7 @@ $background-color: #f1cd01;
     display: flex;
     flex-direction: column;
     margin: auto;
+    transition: scale 1s;
     #logo, svg, p, img {
         display: flex;
         margin: auto;
@@ -19,4 +22,13 @@ $background-color: #f1cd01;
         height: 90%;
         width: 80%;
     }
-  }
+}
+
+.destination-item:hover {
+    scale: 1.1;
+}
+
+.purple {
+    background-color: $secondary-color;
+    color: $beige;
+}

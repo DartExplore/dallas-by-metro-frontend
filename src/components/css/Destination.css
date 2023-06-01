@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
+  transition: scale 1s;
 }
 .destination-item #logo, .destination-item svg, .destination-item p, .destination-item img {
   display: flex;
@@ -19,4 +20,13 @@
   width: 80%;
 }
 
-/*# sourceMappingURL=destination.css.map */
+.destination-item:hover {
+  scale: 1.1;
+}
+
+.purple {
+  background-color: #604675;
+  color: #F5F5DC;
+}
+
+/*# sourceMappingURL=Destination.css.map */
