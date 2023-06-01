@@ -1,5 +1,4 @@
 import './App.css'
-import Destination from './components/Destination'
 import Card from './components/Card'
 import DestinationContainer from './components/DestinationContainer'
 import { DestinationInfo } from './components/DestinationContainer'
