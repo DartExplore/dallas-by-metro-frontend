@@ -1,3 +1,4 @@
+import './css/InputForm.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 type FormValues = {
@@ -32,14 +33,14 @@ const InputForm = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
-        <div>
-          <label htmlFor="walk">Walk</label>
+        <div className='basic-grid'>
+          <label htmlFor="walk">Walk (minutes):</label>
           <Field type="number" id="walk" name="walk" />
           <ErrorMessage name="walk" component="div" className="error" />
         </div>
 
-        <div>
-          <label htmlFor="type">Type</label>
+        <div className='basic-grid'>
+          <label htmlFor="type">Type:</label>
           <Field as="select" id="type" name="type">
             <option value="">Any</option>
             <option value="option1">Restaurant</option>
@@ -49,26 +50,27 @@ const InputForm = () => {
           <ErrorMessage name="type" component="div" className="error" />
         </div>
 
-        <div>
-          <label>Amenity</label>
-          <div>
+        <div className='basic-grid'>
+          <label>Amenities:</label>
+          <div className='amenities-container'>
             <label>
               <Field type="checkbox" name="amenity" value="1" />
               Option 1
             </label>
-          </div>
-          <div>
             <label>
               <Field type="checkbox" name="amenity" value="2" />
               Option 2
             </label>
-          </div>
-          <div>
             <label>
               <Field type="checkbox" name="amenity" value="3" />
               Option 3
             </label>
+            <label>
+              <Field type="checkbox" name="amenity" value="4" />
+              Option 4
+            </label>
           </div>
+            
           <ErrorMessage name="amenity" component="div" className="error" />
         </div>
 

@@ -43,9 +43,6 @@ header img {
 }
 
 /* planner styling */
-#planner .basic-grid form, #planner .basic-grid .map {
-  border: 2px black solid;
-}
 #planner .basic-grid .map {
   height: 30em;
 }

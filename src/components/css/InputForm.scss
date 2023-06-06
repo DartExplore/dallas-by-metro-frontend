@@ -1,0 +1,31 @@
+.basic-grid {
+    label {
+        text-align: right;
+        margin-right: 1em;
+    }
+}
+
+.amenities-container {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    gap: 1em;
+    button {
+        max-width: 10em;
+        margin: auto;
+    }
+}
+
+/* media queries */
+@media (max-width: 768px) {
+    /* display each element in its own row */
+    .basic-grid {
+        label {
+            text-align: left;
+        }
+    }
+}
