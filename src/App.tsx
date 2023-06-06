@@ -1,6 +1,7 @@
 import './App.css'
 import Card from './components/Card'
 import DestinationContainer from './components/DestinationContainer'
+import InputForm from './components/InputForm'
 import { DestinationInfo } from './components/DestinationContainer'
 import att from './assets/att_disc2.jpg'
 import skyline_art from './assets/skyline_art.png'
@@ -45,21 +46,7 @@ function App() {
           />
           
           <div className='basic-grid'>
-            <form action="#" method="POST">
-              <div>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div>
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div>
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-              <button type="submit">Submit</button>
-            </form>
+            <InputForm />
 
             <div className='map'>
               <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" className="bi bi-geo-alt" viewBox="0 0 16 16">
