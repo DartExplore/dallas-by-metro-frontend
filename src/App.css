@@ -50,12 +50,6 @@ header img {
   height: 30em;
 }
 
-/* contact us styling */
-#contact_us {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
 /* footer styling */
 /* media queries */
 @media (max-width: 768px) {
