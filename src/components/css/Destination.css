@@ -1,5 +1,5 @@
 .destination-item {
-  width: 90%;
+  width: 80%;
   height: 20em;
   background-color: #f1cd01;
   border: 2px black solid;
@@ -27,6 +27,14 @@
 .purple {
   background-color: #604675;
   color: #F5F5DC;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  /* display each element in its own row */
+  .destination-item {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=Destination.css.map */
