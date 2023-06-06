@@ -7,14 +7,9 @@ import skyline_art from './assets/skyline_art.png'
 
 function App() {
   const destinations:DestinationInfo[] = new Array(
-      {image:'urban.jpg'              ,name:'AT&T Discovery District'    ,station:'Akard'}
-      ,{image:'aquarium.jpg'           ,name:'Dallas Aquarium'            ,station:'West End'}
-      ,{image:'art_museum.jpg'         ,name:'Dallas Museum of Art'       ,station:'Pearl/Arts District'}
-      ,{image:'urban_park.jpg'         ,name:'Klyde Warren Park'          ,station:'Pearl/Arts District'}
-      ,{image:'basketball_stadium.jpg' ,name:'American Airlines Stadium'  ,station:'Victory'}
-      ,{image:'street.jpg'             ,name:'Deep Ellum'                 ,station:'Deep Ellum'}
-      ,{image:'texas_fair.jpg'         ,name:'Fair Park'                  ,station:'Fair Park'}
-      ,{image:'zoo.jpg'                ,name:'Dallas Zoo'                 ,station:'Dallas Zoo'}
+      {image:'urban.jpg'              ,name:'Downtown'    ,station:'Akard, St. Paul, Pearl/Arts District, West End'}
+      ,{image:'neon.jpg'             ,name:'Deep Ellum'                 ,station:'Deep Ellum'}
+      ,{image:'bar.jpg'         ,name:'Uptown'                  ,station:'Cityplace/Uptown'}
     );
   return (
     <>

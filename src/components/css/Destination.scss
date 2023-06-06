@@ -3,7 +3,7 @@ $secondary-color: #604675;
 $beige: #F5F5DC;
 
 .destination-item {
-    width: 90%;
+    width: 80%;
     height: 20em;
     background-color: $background-color;
     border: 2px black solid;
@@ -31,4 +31,12 @@ $beige: #F5F5DC;
 .purple {
     background-color: $secondary-color;
     color: $beige;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+    /* display each element in its own row */
+    .destination-item {
+        width: 100%;
+    }
 }
