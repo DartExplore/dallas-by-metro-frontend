@@ -24,6 +24,17 @@ function App() {
           <img src={skyline_art} alt='Dallas skyline.'></img>
         </header>
 
+        <section id='goal' className='basic-grid'>
+          <Card headerText='Our Goal'
+            description="When using public transit it's often better to look for places near stations and not for places directly.
+             Our planner will do all the hard work for you. Simply put what you're looking for and we will find DARTable locations
+             that suit your needs."
+            buttonText='Plan Your Next Trip'
+          />
+
+          <div id='background_pattern'></div>
+        </section>
+        
         <section id='explore_downtown' className='basic-grid'>
           <img src={att} alt='Downtown Dallas.'></img>
 

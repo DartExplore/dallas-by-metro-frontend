@@ -13,6 +13,10 @@ header, section {
   padding-bottom: 2em;
 }
 
+img {
+  width: 100%;
+}
+
 /* grid styling */
 .basic-grid {
   display: grid;
@@ -37,9 +41,15 @@ header img {
   display: flex;
 }
 
-/* explore downtown styling */
-#explore_downtown img {
-  width: 100%;
+/* pattern styling
+* sourced from: https://css-pattern.com/ 
+*/
+#background_pattern {
+  height: 30em;
+  --s: 140px; /* control the size */
+  --_g: #0000 52%,#170409 /* first color */ 54% 57%,#0000 59%;
+  background: radial-gradient(farthest-side at -33.33% 50%, var(--_g)) 0 calc(var(--s) / 2), radial-gradient(farthest-side at 50% 133.33%, var(--_g)) calc(var(--s) / 2) 0, radial-gradient(farthest-side at 133.33% 50%, var(--_g)), radial-gradient(farthest-side at 50% -33.33%, var(--_g)), #f1cd01; /* second color */
+  background-size: calc(var(--s) / 4.667) var(--s), var(--s) calc(var(--s) / 4.667);
 }
 
 /* planner styling */
