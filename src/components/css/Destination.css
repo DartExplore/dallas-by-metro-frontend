@@ -1,8 +1,7 @@
 .destination-item {
   width: 80%;
   height: 20em;
-  background-color: #f1cd01;
-  border: 2px black solid;
+  border: #f1cd01 solid 0.5em;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -25,8 +24,7 @@
 }
 
 .purple {
-  background-color: #604675;
-  color: #F5F5DC;
+  border: #604675 solid 0.5em;
 }
 
 /* media queries */
