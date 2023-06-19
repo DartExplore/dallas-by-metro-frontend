@@ -1,5 +1,7 @@
 import './css/InputForm.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 type FormValues = {
   walk: number;
@@ -8,6 +10,7 @@ type FormValues = {
 };
 
 const InputForm = () => {
+  /* formik form */
   const initialValues : FormValues = {
     walk: 10,
     type: '',
@@ -29,6 +32,17 @@ const InputForm = () => {
 
     return errors;
   };
+
+  /* fetch amenity data */
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/public/amenities')
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
