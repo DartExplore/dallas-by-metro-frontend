@@ -1,6 +1,6 @@
 import './css/InputForm.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 type FormValues = {
@@ -8,6 +8,11 @@ type FormValues = {
   type: string;
   amenity: number[];
 };
+
+type Amenity = {
+  amenityId : number,
+  amenity : string
+}
 
 const InputForm = () => {
   /* formik form */
@@ -34,10 +39,12 @@ const InputForm = () => {
   };
 
   /* fetch amenity data */
+  const [amenities, setAmenities] = useState<Amenity[]>([]);
+
   useEffect(() => {
     axios.get('http://localhost:8080/api/public/amenities')
       .then(response => {
-        console.log(response.data);
+        setAmenities(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -67,22 +74,12 @@ const InputForm = () => {
         <div className='basic-grid'>
           <label>Amenities:</label>
           <div className='amenities-container'>
-            <label>
-              <Field type="checkbox" name="amenity" value="1" />
-              Option 1
-            </label>
-            <label>
-              <Field type="checkbox" name="amenity" value="2" />
-              Option 2
-            </label>
-            <label>
-              <Field type="checkbox" name="amenity" value="3" />
-              Option 3
-            </label>
-            <label>
-              <Field type="checkbox" name="amenity" value="4" />
-              Option 4
-            </label>
+            {amenities.map((amenity)=>
+              <label>
+                <Field type="checkbox" name="amenity" value={amenity.amenityId} />
+                {amenity.amenity.split("_").map((s)=>s.toLowerCase()).join(" ")}
+              </label>
+            )}
           </div>
             
           <ErrorMessage name="amenity" component="div" className="error" />
