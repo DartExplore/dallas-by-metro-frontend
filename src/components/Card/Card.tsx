@@ -1,4 +1,4 @@
-import './css/Card.css'
+import './Card.scss';
 
 interface CardProps {
     headerText : string,
