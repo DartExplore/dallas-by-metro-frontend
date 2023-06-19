@@ -1,4 +1,4 @@
-import './css/Destination.css'
+import './Destination.scss';
 
 interface DestinationProps {
     image : string,

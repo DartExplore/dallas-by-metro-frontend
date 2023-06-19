@@ -1,4 +1,4 @@
-import './css/InputForm.css'
+import './InputForm.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';

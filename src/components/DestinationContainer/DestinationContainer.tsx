@@ -1,5 +1,5 @@
-import './css/DestinationContainer.css'
-import Destination from './Destination'
+import './DestinationContainer.scss';
+import Destination from '../Destination/Destination';
 
 export interface DestinationInfo {
     image : string,
