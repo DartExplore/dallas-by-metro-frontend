@@ -74,7 +74,7 @@ function App() {
         <h2>Connect with us on:</h2>
       </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

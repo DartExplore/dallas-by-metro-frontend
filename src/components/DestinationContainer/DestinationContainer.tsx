@@ -29,4 +29,4 @@ function DestinationContainer({destinations}:DestinationContainerProps){
     );
 }
 
-export default DestinationContainer
+export default DestinationContainer;
