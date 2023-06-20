@@ -8,7 +8,7 @@
 }
 
 /* media queries */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .destination-container {
         margin-left: 0;
         margin-right: 0;

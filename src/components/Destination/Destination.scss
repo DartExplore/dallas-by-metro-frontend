@@ -10,13 +10,16 @@ $beige: #F5F5DC;
     flex-direction: column;
     margin: auto;
     transition: scale 1s;
+
     #logo, svg, p, img {
         display: flex;
         margin: auto;
     }
+
     p {
         text-align: center;
     }
+
     img {
         height: 90%;
         width: 80%;
@@ -32,7 +35,7 @@ $beige: #F5F5DC;
 }
 
 /* media queries */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     /* display each element in its own row */
     .destination-item {
         width: 100%;
