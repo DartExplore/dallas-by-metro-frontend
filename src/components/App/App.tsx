@@ -32,7 +32,7 @@ function App() {
             buttonText='Plan Your Next Trip'
           />
 
-          <div id='background_pattern'></div>
+          <div id='background-pattern'></div>
         </section>
         
         <section id='explore_downtown' className='basic-grid'>

@@ -1,5 +1,5 @@
-$primary-color: #ffffff;
-$secondary-color: #000000;
+$primary-color: #fff;
+$secondary-color: #000;
 
 /* basic colors, margins, etc. */
 body {
@@ -37,6 +37,7 @@ form {
 /* header styling */
 header {
     height: 100vh;
+
     img {
         width: 100%;
         height: 70vh;
@@ -47,19 +48,22 @@ header {
 /* pattern styling
 * sourced from: https://css-pattern.com/ 
 */
-#background_pattern {
+#background-pattern {
     height: 30em;
-    --s: 140px; /* control the size */
+
+    --bg-pattern-size: 140px; /* control the size */
     $yellow: #f1cd01;
 
-    --_g: #0000 52%,#170409 /* first color */ 54% 57%,#0000 59%; 
+    --bg-pattern-gradient: #0000 52%,#170409 /* first color */ 54% 57%,#0000 59%; 
+
     background: 
-     radial-gradient(farthest-side at -33.33% 50%,var(--_g)) 0 calc(var(--s)/2),
-     radial-gradient(farthest-side at 50% 133.33%,var(--_g)) calc(var(--s)/2) 0,
-     radial-gradient(farthest-side at 133.33% 50%,var(--_g)),
-     radial-gradient(farthest-side at 50% -33.33%,var(--_g)),
+     radial-gradient(farthest-side at -33.33% 50%,var(--bg-pattern-gradient)) 0 calc(var(--bg-pattern-size) / 2),
+     radial-gradient(farthest-side at 50% 133.33%,var(--bg-pattern-gradient)) calc(var(--bg-pattern-size) / 2) 0,
+     radial-gradient(farthest-side at 133.33% 50%,var(--bg-pattern-gradient)),
+     radial-gradient(farthest-side at 50% -33.33%,var(--bg-pattern-gradient)),
      $yellow; /* second color */
-    background-size: calc(var(--s)/4.667) var(--s),var(--s) calc(var(--s)/4.667);
+
+    background-size: calc(var(--bg-pattern-size) / 4.667) var(--bg-pattern-size),var(--bg-pattern-size) calc(var(--bg-pattern-size) / 4.667);
 }
   
 
@@ -76,7 +80,7 @@ header {
 
 
 /* media queries */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     /* display each element in its own row */
     .basic-grid {
         grid-template-columns: 1fr;

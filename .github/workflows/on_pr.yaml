@@ -15,4 +15,6 @@ jobs:
       - name: Check types
         run: npm run typecheck
       - name: Lint TS/TSX
-        run: npm run lint
+        run: npm run lintts
+      - name: Lint SCSS
+        run: npm run lintscss
