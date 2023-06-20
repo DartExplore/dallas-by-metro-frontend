@@ -76,7 +76,7 @@ const InputForm = () => {
           <div className='amenities-container'>
             {amenities.map((amenity)=>
               <label>
-                <Field type="checkbox" name="amenity" value={amenity.amenityId} />
+                <Field type="checkbox" name="amenity" value={"A"+amenity.amenityId} />
                 {amenity.amenity.split("_").map((s)=>s.toLowerCase()).join(" ")}
               </label>
             )}
