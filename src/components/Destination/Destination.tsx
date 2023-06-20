@@ -23,7 +23,7 @@ function Destination({image, name, station, index}:DestinationProps) {
                 <p>{station}</p>
             </div>
         </div>
-    </>
+    </>;
 }
 
-export default Destination
+export default Destination;

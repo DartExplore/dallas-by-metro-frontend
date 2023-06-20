@@ -16,4 +16,4 @@ function Card({headerText, description, buttonText} : CardProps){
     </>);
 }
 
-export default Card
+export default Card;
