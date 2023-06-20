@@ -7,11 +7,11 @@ import att from '../../assets/att_disc2.jpg';
 import skyline_art from '../../assets/skyline_art.png';
 
 function App() {
-  const destinations:DestinationInfo[] = new Array(
-      {image:'urban.jpg'              ,name:'Downtown'    ,station:'Akard, St. Paul, Pearl/Arts District, West End'}
-      ,{image:'neon.jpg'             ,name:'Deep Ellum'                 ,station:'Deep Ellum'}
-      ,{image:'bar.jpg'         ,name:'Uptown'                  ,station:'Cityplace/Uptown'}
-    );
+  const destinations:DestinationInfo[] = 
+      [ {image:'urban.jpg', name:'Downtown', station:'Akard, St. Paul, Pearl/Arts District, West End'},
+      {image:'neon.jpg'             ,name:'Deep Ellum'                 ,station:'Deep Ellum'},
+      {image:'bar.jpg'         ,name:'Uptown'                  ,station:'Cityplace/Uptown'}
+] ;
   return (
     <>
       <main>
