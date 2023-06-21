@@ -21,6 +21,11 @@ form {
     }
 }
 
+.error {
+    color: red;
+    grid-column: 2;
+}
+
 /* media queries */
 @media (width <= 768px) {
     /* display each element in its own row */

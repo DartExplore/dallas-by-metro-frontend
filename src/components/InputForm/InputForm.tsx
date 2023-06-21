@@ -24,18 +24,22 @@ const InputForm = () => {
 
   const handleSubmit = (values: FormValues) => {
     // Handle form submission here
+    axios.get('http://localhost:8080/api/public/poi/amenity', {
+      params: {
+        amenityIdList: values.amenity.map((a)=>a.toString().substring(1)).join(",")
+      }
+    })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.error(error);
+      });
     console.log(values);
   };
 
   const validate = (values : FormValues) => {
-    const errors = {walk: "", type: "", amenity: ""};
-
-    // Add validation logic for each field here
-    if (values.walk <= 0) {
-      errors.walk = 'Walk time must be positive.';
-    }
-
-    return errors;
+    return (values.walk <= 0) ? {walk: "Walking time must be positive."} : {};
   };
 
   /* fetch amenity data */
@@ -68,7 +72,6 @@ const InputForm = () => {
             <option value="option2">Bar</option>
             <option value="option3">Coffee Shop</option>
           </Field>
-          <ErrorMessage name="type" component="div" className="error" />
         </div>
 
         <div className='basic-grid'>
@@ -81,8 +84,6 @@ const InputForm = () => {
               </label>
             )}
           </div>
-            
-          <ErrorMessage name="amenity" component="div" className="error" />
         </div>
 
         <button type="submit">Submit</button>
