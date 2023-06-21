@@ -71,35 +71,37 @@ const InputForm = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
-        <div className='basic-grid'>
-          <label htmlFor="walk">Walk (minutes):</label>
-          <Field type="number" id="walk" name="walk" />
-          <ErrorMessage name="walk" component="div" className="error" />
-        </div>
-
-        <div className='basic-grid'>
-          <label htmlFor="type">Type:</label>
-          <Field as="select" id="type" name="type">
-            <option value="">Any</option>
-            <option value="option1">Restaurant</option>
-            <option value="option2">Bar</option>
-            <option value="option3">Coffee Shop</option>
-          </Field>
-        </div>
-
-        <div className='basic-grid'>
-          <label>Amenities:</label>
-          <div className='amenities-container'>
-            {amenities.map((amenity)=>
-              <label>
-                <Field type="checkbox" name="amenity" value={"A"+amenity.amenityId} />
-                {amenity.amenity.split("_").map((s)=>s.toLowerCase()).join(" ")}
-              </label>
-            )}
+        <div className='form-container'>
+          <div className='basic-grid form-element'>
+            <label htmlFor="walk">Walk (minutes):</label>
+            <Field type="number" id="walk" name="walk" />
+            <ErrorMessage name="walk" component="div" className="error" />
           </div>
-        </div>
 
-        <button type="submit">Submit</button>
+          <div className='basic-grid form-element'>
+            <label htmlFor="type">Type:</label>
+            <Field as="select" id="type" name="type">
+              <option value="">Any</option>
+              <option value="option1">Restaurant</option>
+              <option value="option2">Bar</option>
+              <option value="option3">Coffee Shop</option>
+            </Field>
+          </div>
+
+          <div className='basic-grid form-element'>
+            <label>Amenities:</label>
+            <div className='amenities-container'>
+              {amenities.map((amenity)=>
+                <label>
+                  <Field type="checkbox" name="amenity" value={"A"+amenity.amenityId} />
+                  {amenity.amenity.split("_").map((s)=>s.toLowerCase()).join(" ")}
+                </label>
+              )}
+            </div>
+          </div>
+
+          <button type="submit">Submit</button>
+        </div>
       </Form>
     </Formik>
   );
