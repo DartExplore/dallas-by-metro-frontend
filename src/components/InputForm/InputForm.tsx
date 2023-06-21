@@ -1,10 +1,10 @@
 import './InputForm.scss';
-import Card from '../Card/Card';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Amenity from '../interfaces/Amenity';
 import PointOfInterest from '../interfaces/PointOfInterest';
+import Station from '../Station/Station';
 
 type FormValues = {
   walk: number;
@@ -29,7 +29,7 @@ const InputForm = () => {
     })
       .then(response => {
         const pointOfInterestList : PointOfInterest[] = response.data;
-        pointOfInterestList.sort((a, b) => a.stationName.localeCompare(b.stationName));
+        pointOfInterestList.sort((a, b)=>a.stationName.localeCompare(b.stationName));
         setPoiList(pointOfInterestList);
       })
       .catch(error => {
@@ -93,11 +93,24 @@ const InputForm = () => {
       </Form>
     </Formik>
 
-    {poiList.map((p)=>
-      <Card headerText={p.name} description={p.stationName} buttonText="" />
+    {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=>
+      <Station stationName={stationName} pointOfInterestList={pointOfInterestList} />
     )}
     </>
   );
 };
+
+/* helper function to group poiList by stations */
+function groupByStationId(pointOfInterestArray: PointOfInterest[]) {
+  return pointOfInterestArray.reduce((groups: { [key: string]: PointOfInterest[] }, pointOfInterest) => {
+    const { stationName } = pointOfInterest;
+    if (groups[stationName]) {
+      groups[stationName].push(pointOfInterest);
+    } else {
+      groups[stationName] = [pointOfInterest];
+    }
+    return groups;
+  }, {});
+}
 
 export default InputForm;

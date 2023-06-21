@@ -1,3 +1,4 @@
+import './PointOfInterestCard.scss';
 import PointOfInterest from '../interfaces/PointOfInterest';
 
 interface PointOfInterestCardProps {
@@ -6,7 +7,10 @@ interface PointOfInterestCardProps {
 
 function PointOfInterestCard({ pointOfInterest } : PointOfInterestCardProps) {
     return (<>
-        <p>{pointOfInterest.name}</p>
+        <div className='poi-container'>
+            <p>{pointOfInterest.name}</p>
+        </div>
+        
     </>);
 }
 

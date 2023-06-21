@@ -9,12 +9,13 @@ interface StationProps {
 
 function Station({stationName, pointOfInterestList} : StationProps){
     return (<>
-        <h2>{stationName}</h2>
-        <div className='poi-container'>
+        <div className='station-container'>
+            <h2>{stationName}</h2>
             {pointOfInterestList.map((p=>
                 <PointOfInterestCard pointOfInterest={p} />
             ))}
         </div>
+        
     </>);
 }
 
