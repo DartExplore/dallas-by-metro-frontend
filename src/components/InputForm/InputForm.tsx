@@ -3,29 +3,14 @@ import Card from '../Card/Card';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Amenity from '../interfaces/Amenity';
+import PointOfInterest from '../interfaces/PointOfInterest';
 
 type FormValues = {
   walk: number;
   type: string;
   amenity: number[];
 };
-
-type Amenity = {
-  amenityId : number,
-  amenity : string
-}
-
-type PointOfInterest = {
-  poiId: number,
-  name: string,
-  location: string,
-  walkingDistance: number,
-  picUrl: string,
-  type: string
-  amenities: Amenity[],
-  stationId: number,
-  stationName: string
-}
 
 const InputForm = () => {
   /* formik form */
