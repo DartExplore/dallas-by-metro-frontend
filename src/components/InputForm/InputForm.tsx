@@ -42,9 +42,9 @@ const InputForm = () => {
       }
     })
       .then(response => {
-        let pointOfInterestList : PointOfInterest[] = response.data;
+        const pointOfInterestList : PointOfInterest[] = response.data;
         pointOfInterestList.sort((a, b) => a.stationName.localeCompare(b.stationName));
-        console.log(pointOfInterestList.map((p)=>p.name+" at "+p.stationName))
+        console.log(pointOfInterestList.map((p)=>p.name+" at "+p.stationName));
       })
       .catch(error => {
         console.error(error);
