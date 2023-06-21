@@ -1,4 +1,5 @@
 import './InputForm.scss';
+import Card from '../Card/Card';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -44,7 +45,7 @@ const InputForm = () => {
       .then(response => {
         const pointOfInterestList : PointOfInterest[] = response.data;
         pointOfInterestList.sort((a, b) => a.stationName.localeCompare(b.stationName));
-        console.log(pointOfInterestList.map((p)=>p.name+" at "+p.stationName));
+        setPoiList(pointOfInterestList);
       })
       .catch(error => {
         console.error(error);
@@ -57,6 +58,7 @@ const InputForm = () => {
 
   /* fetch amenity data */
   const [amenities, setAmenities] = useState<Amenity[]>([]);
+  const [poiList, setPoiList] = useState<PointOfInterest[]>([]);
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/public/amenities')
@@ -69,6 +71,7 @@ const InputForm = () => {
   }, []);
 
   return (
+    <>
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
         <div className='form-container'>
@@ -104,6 +107,11 @@ const InputForm = () => {
         </div>
       </Form>
     </Formik>
+
+    {poiList.map((p)=>
+      <Card headerText={p.name} description={p.stationName} buttonText="" />
+    )}
+    </>
   );
 };
 
