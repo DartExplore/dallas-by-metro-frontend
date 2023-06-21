@@ -14,6 +14,18 @@ type Amenity = {
   amenity : string
 }
 
+type PointOfInterest = {
+  poiId: number,
+  name: string,
+  location: string,
+  walkingDistance: number,
+  picUrl: string,
+  type: string
+  amenities: Amenity[],
+  stationId: number,
+  stationName: string
+}
+
 const InputForm = () => {
   /* formik form */
   const initialValues : FormValues = {
@@ -30,12 +42,13 @@ const InputForm = () => {
       }
     })
       .then(response => {
-        console.log(response);
+        let pointOfInterestList : PointOfInterest[] = response.data;
+        pointOfInterestList.sort((a, b) => a.stationName.localeCompare(b.stationName));
+        console.log(pointOfInterestList.map((p)=>p.name+" at "+p.stationName))
       })
       .catch(error => {
         console.error(error);
       });
-    console.log(values);
   };
 
   const validate = (values : FormValues) => {
