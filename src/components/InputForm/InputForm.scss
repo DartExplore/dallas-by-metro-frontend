@@ -5,20 +5,30 @@
     }
 }
 
+.form-element {
+    max-width: 40em;
+}
+
 .amenities-container {
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
 }
 
-form {
-    display: flex;
+.form-container {
+    display: grid;
+    margin: auto;
     gap: 1em;
 
     button {
         max-width: 10em;
         margin: auto;
     }
+}
+
+.error {
+    color: red;
+    grid-column: 2;
 }
 
 /* media queries */
