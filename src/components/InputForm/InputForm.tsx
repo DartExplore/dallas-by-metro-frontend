@@ -1,5 +1,5 @@
 import './InputForm.scss';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Amenity from '../interfaces/Amenity';
@@ -31,6 +31,7 @@ const InputForm = () => {
         const pointOfInterestList : PointOfInterest[] = response.data;
         pointOfInterestList.sort((a, b)=>a.stationName.localeCompare(b.stationName));
         setPoiList(pointOfInterestList);
+        setWalkDistance(values.walk);
       })
       .catch(error => {
         console.error(error);
@@ -44,6 +45,7 @@ const InputForm = () => {
   /* fetch amenity data */
   const [amenities, setAmenities] = useState<Amenity[]>([]);
   const [poiList, setPoiList] = useState<PointOfInterest[]>([]);
+  const [walkDistance, setWalkDistance] = useState(10);
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/public/amenities')
@@ -59,6 +61,7 @@ const InputForm = () => {
     <>
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
+        <FormObserver onWalkChange={(newWalk : number)=>setWalkDistance(newWalk)} />
         <div className='form-container'>
           <div className='basic-grid form-element'>
             <label htmlFor="walk">Walk (minutes):</label>
@@ -93,8 +96,9 @@ const InputForm = () => {
       </Form>
     </Formik>
 
-    {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=>
-      <Station stationName={stationName} pointOfInterestList={pointOfInterestList} />
+    {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=> // group by station
+      <Station stationName={stationName} 
+        pointOfInterestList={pointOfInterestList.filter((p)=>p.walkingDistance <= walkDistance)} /> // filter by walk distance
     )}
     </>
   );
@@ -111,6 +115,18 @@ function groupByStationId(pointOfInterestArray: PointOfInterest[]) {
     }
     return groups;
   }, {});
+}
+
+interface FormObserverProps {
+  onWalkChange : (newState: number) => void
+}
+
+function FormObserver({onWalkChange} : FormObserverProps) {
+  const { values } = useFormikContext<FormValues>();
+  useEffect(() => {
+    onWalkChange(values.walk);
+  }, [values.walk, onWalkChange]);  
+  return null;
 }
 
 export default InputForm;
