@@ -47,6 +47,7 @@ const InputForm = () => {
   const [types, setTypes] = useState<string[]>([]);
   const [poiList, setPoiList] = useState<PointOfInterest[]>([]);
   const [walkDistance, setWalkDistance] = useState(10);
+  const [type, setType] = useState("");
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/public/amenities')
@@ -69,7 +70,8 @@ const InputForm = () => {
     <>
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
-        <FormObserver onWalkChange={(newWalk : number)=>setWalkDistance(newWalk)} />
+        <FormObserver onWalkChange={(newWalk : number)=>setWalkDistance(newWalk)}
+          onTypeChange={(newType : string)=>setType(newType)} />
         <div className='form-container'>
           <div className='basic-grid form-element'>
             <label htmlFor="walk">Walk (minutes):</label>
@@ -106,7 +108,9 @@ const InputForm = () => {
 
     {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=> // group by station
       <Station stationName={stationName} 
-        pointOfInterestList={pointOfInterestList.filter((p)=>p.walkingDistance <= walkDistance)} /> // filter by walk distance
+        pointOfInterestList={pointOfInterestList.filter((p)=>p.walkingDistance <= walkDistance) // filter by walk distance
+                .filter((p)=> (type) ? (p.type === type) : true) // filter by type if exists
+        } /> 
     )}
     </>
   );
@@ -126,14 +130,16 @@ function groupByStationId(pointOfInterestArray: PointOfInterest[]) {
 }
 
 interface FormObserverProps {
-  onWalkChange : (newState: number) => void
+  onWalkChange : (newState: number) => void,
+  onTypeChange : (newType : string) => void
 }
 
-function FormObserver({onWalkChange} : FormObserverProps) {
+function FormObserver({onWalkChange, onTypeChange} : FormObserverProps) {
   const { values } = useFormikContext<FormValues>();
   useEffect(() => {
     onWalkChange(values.walk);
-  }, [values.walk, onWalkChange]);  
+    onTypeChange(values.type);
+  }, [values.walk, onWalkChange, values.type, onTypeChange]);  
   return null;
 }
 
