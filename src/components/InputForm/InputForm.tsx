@@ -44,6 +44,7 @@ const InputForm = () => {
 
   /* fetch amenity data */
   const [amenities, setAmenities] = useState<Amenity[]>([]);
+  const [types, setTypes] = useState<string[]>([]);
   const [poiList, setPoiList] = useState<PointOfInterest[]>([]);
   const [walkDistance, setWalkDistance] = useState(10);
 
@@ -51,6 +52,13 @@ const InputForm = () => {
     axios.get('http://localhost:8080/api/public/amenities')
       .then(response => {
         setAmenities(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    axios.get('http://localhost:8080/api/public/type')
+      .then(response => {
+        setTypes(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -73,9 +81,9 @@ const InputForm = () => {
             <label htmlFor="type">Type:</label>
             <Field as="select" id="type" name="type">
               <option value="">Any</option>
-              <option value="option1">Restaurant</option>
-              <option value="option2">Bar</option>
-              <option value="option3">Coffee Shop</option>
+              {types.map((type)=>
+                <option value={type}>{type.split("_").map((s)=>s.toLowerCase()).join(" ")}</option>
+              )}
             </Field>
           </div>
 
