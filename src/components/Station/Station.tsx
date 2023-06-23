@@ -11,8 +11,8 @@ function Station({stationName, pointOfInterestList} : StationProps){
     return (<>
         <div className='station-container'>
             <h2>{stationName}</h2>
-            {pointOfInterestList.map((p=>
-                <PointOfInterestCard pointOfInterest={p} />
+            {pointOfInterestList.map(((p, index)=>
+                <PointOfInterestCard pointOfInterest={p} id={index} key={index} />
             ))}
         </div>
         
