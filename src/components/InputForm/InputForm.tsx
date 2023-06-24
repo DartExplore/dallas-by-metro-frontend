@@ -1,5 +1,5 @@
 import './InputForm.scss';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Amenity from '../interfaces/Amenity';
@@ -31,6 +31,7 @@ const InputForm = () => {
         const pointOfInterestList : PointOfInterest[] = response.data;
         pointOfInterestList.sort((a, b)=>a.stationName.localeCompare(b.stationName));
         setPoiList(pointOfInterestList);
+        setWalkDistance(values.walk);
       })
       .catch(error => {
         console.error(error);
@@ -43,12 +44,22 @@ const InputForm = () => {
 
   /* fetch amenity data */
   const [amenities, setAmenities] = useState<Amenity[]>([]);
+  const [types, setTypes] = useState<string[]>([]);
   const [poiList, setPoiList] = useState<PointOfInterest[]>([]);
+  const [walkDistance, setWalkDistance] = useState(10);
+  const [type, setType] = useState("");
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/public/amenities')
       .then(response => {
         setAmenities(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    axios.get('http://localhost:8080/api/public/type')
+      .then(response => {
+        setTypes(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -59,6 +70,8 @@ const InputForm = () => {
     <>
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validate}>
       <Form>
+        <FormObserver onWalkChange={(newWalk : number)=>setWalkDistance(newWalk)}
+          onTypeChange={(newType : string)=>setType(newType)} />
         <div className='form-container'>
           <div className='basic-grid form-element'>
             <label htmlFor="walk">Walk (minutes):</label>
@@ -70,9 +83,9 @@ const InputForm = () => {
             <label htmlFor="type">Type:</label>
             <Field as="select" id="type" name="type">
               <option value="">Any</option>
-              <option value="option1">Restaurant</option>
-              <option value="option2">Bar</option>
-              <option value="option3">Coffee Shop</option>
+              {types.map((type)=>
+                <option value={type}>{type.split("_").map((s)=>s.toLowerCase()).join(" ")}</option>
+              )}
             </Field>
           </div>
 
@@ -93,8 +106,11 @@ const InputForm = () => {
       </Form>
     </Formik>
 
-    {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=>
-      <Station stationName={stationName} pointOfInterestList={pointOfInterestList} />
+    {Object.entries(groupByStationId(poiList)).map(([stationName, pointOfInterestList])=> // group by station
+      <Station stationName={stationName} 
+        pointOfInterestList={pointOfInterestList.filter((p)=>p.walkingDistance <= walkDistance) // filter by walk distance
+                .filter((p)=> (type) ? (p.type === type) : true) // filter by type if exists
+        } /> 
     )}
     </>
   );
@@ -111,6 +127,20 @@ function groupByStationId(pointOfInterestArray: PointOfInterest[]) {
     }
     return groups;
   }, {});
+}
+
+interface FormObserverProps {
+  onWalkChange : (newState: number) => void,
+  onTypeChange : (newType : string) => void
+}
+
+function FormObserver({onWalkChange, onTypeChange} : FormObserverProps) {
+  const { values } = useFormikContext<FormValues>();
+  useEffect(() => {
+    onWalkChange(values.walk);
+    onTypeChange(values.type);
+  }, [values.walk, onWalkChange, values.type, onTypeChange]);  
+  return null;
 }
 
 export default InputForm;
