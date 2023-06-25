@@ -60,4 +60,4 @@ jobs:
           username: ${{ secrets.EC2USERNAME }}
           key: ${{ secrets.EC2SSH_KEY }}
           script: |
-            npm run reload
+            /home/ubuntu/.nvm/versions/node/v18.16.0/bin/pm2 reload default
