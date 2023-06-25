@@ -6,13 +6,13 @@ interface PointOfInterestCardProps {
     id: number
 }
 
-function PointOfInterestCard({ pointOfInterest, id } : PointOfInterestCardProps) {
+function PointOfInterestCard({pointOfInterest, id}: PointOfInterestCardProps) {
     return (<>
-        <div className={'poi-container poi-border-'+id%2}>
+        <div className={'poi-container poi-border-' + id % 2}>
             <h3>{pointOfInterest.name}</h3>
             <p>Walk time: {pointOfInterest.walkingDistance}</p>
         </div>
-        
+
     </>);
 }
 
