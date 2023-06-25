@@ -6,6 +6,8 @@ import Amenity from '../interfaces/Amenity';
 import PointOfInterest from '../interfaces/PointOfInterest';
 import Station from '../Station/Station';
 
+const API_URL : string = import.meta.env.VITE_API_URL;
+
 type FormValues = {
   walk: number;
   type: string;
@@ -22,7 +24,7 @@ const InputForm = () => {
 
   const handleSubmit = (values: FormValues) => {
     // Handle form submission here
-    axios.get('http://localhost:8080/api/public/poi/amenity', {
+    axios.get(API_URL+'/api/public/poi/amenity', {
       params: {
         amenityIdList: values.amenity.map((a)=>a.toString().substring(1)).join(",")
       }
@@ -50,14 +52,14 @@ const InputForm = () => {
   const [type, setType] = useState("");
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/public/amenities')
+    axios.get(API_URL+'/api/public/amenities')
       .then(response => {
         setAmenities(response.data);
       })
       .catch(error => {
         console.error(error);
       });
-    axios.get('http://localhost:8080/api/public/type')
+    axios.get(API_URL+'/api/public/type')
       .then(response => {
         setTypes(response.data);
       })
