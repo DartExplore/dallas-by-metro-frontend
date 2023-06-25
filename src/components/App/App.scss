@@ -13,67 +13,67 @@ h2 {
 }
 
 header, section {
-    padding-bottom: 2em;
+  padding-bottom: 2em;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 /* grid styling */
 .basic-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 /* form styling */
 form {
-    /* vertically centered */
-    display: flex;
-    flex-direction: column;
-    margin: auto;
+  /* vertically centered */
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 /* header styling */
 header {
-    height: 100vh;
+  height: 100vh;
 
-    img {
-        width: 100%;
-        height: 70vh;
-        display: flex;
-    }
+  img {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+  }
 }
 
 /* pattern styling
 * sourced from: https://css-pattern.com/ 
 */
 #background-pattern {
-    height: 30em;
+  height: 30em;
 
-    --bg-pattern-size: 140px; /* control the size */
-    $yellow: #f1cd01;
+  --bg-pattern-size: 140px; /* control the size */
+  $yellow: #f1cd01;
 
-    --bg-pattern-gradient: #0000 52%,#170409 /* first color */ 54% 57%,#0000 59%; 
+  --bg-pattern-gradient: #0000 52%, #170409 /* first color */
+  54% 57%, #0000 59%;
 
-    background: 
-     radial-gradient(farthest-side at -33.33% 50%,var(--bg-pattern-gradient)) 0 calc(var(--bg-pattern-size) / 2),
-     radial-gradient(farthest-side at 50% 133.33%,var(--bg-pattern-gradient)) calc(var(--bg-pattern-size) / 2) 0,
-     radial-gradient(farthest-side at 133.33% 50%,var(--bg-pattern-gradient)),
-     radial-gradient(farthest-side at 50% -33.33%,var(--bg-pattern-gradient)),
-     $yellow; /* second color */
+  background: radial-gradient(farthest-side at -33.33% 50%, var(--bg-pattern-gradient)) 0 calc(var(--bg-pattern-size) / 2),
+  radial-gradient(farthest-side at 50% 133.33%, var(--bg-pattern-gradient)) calc(var(--bg-pattern-size) / 2) 0,
+  radial-gradient(farthest-side at 133.33% 50%, var(--bg-pattern-gradient)),
+  radial-gradient(farthest-side at 50% -33.33%, var(--bg-pattern-gradient)),
+  $yellow; /* second color */
 
-    background-size: calc(var(--bg-pattern-size) / 4.667) var(--bg-pattern-size),var(--bg-pattern-size) calc(var(--bg-pattern-size) / 4.667);
+  background-size: calc(var(--bg-pattern-size) / 4.667) var(--bg-pattern-size), var(--bg-pattern-size) calc(var(--bg-pattern-size) / 4.667);
 }
-  
+
 
 /* planner styling */
 #planner {
-    .basic-grid {
-        .map {
-            height: 30em;
-        }
+  .basic-grid {
+    .map {
+      height: 30em;
     }
+  }
 }
 
 /* footer styling */
@@ -81,8 +81,8 @@ header {
 
 /* media queries */
 @media (width <= 768px) {
-    /* display each element in its own row */
-    .basic-grid {
-        grid-template-columns: 1fr;
-    }
+  /* display each element in its own row */
+  .basic-grid {
+    grid-template-columns: 1fr;
+  }
 }
