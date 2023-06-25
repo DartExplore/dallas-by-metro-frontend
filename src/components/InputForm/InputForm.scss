@@ -1,42 +1,42 @@
 .basic-grid {
-    label {
-        text-align: right;
-        margin-right: 1em;
-    }
+  label {
+    text-align: right;
+    margin-right: 1em;
+  }
 }
 
 .form-element {
-    max-width: 40em;
+  max-width: 40em;
 }
 
 .amenities-container {
-    display: flex;
-    gap: 1em;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 .form-container {
-    display: grid;
-    margin: auto;
-    gap: 1em;
+  display: grid;
+  margin: auto;
+  gap: 1em;
 
-    button {
-        max-width: 10em;
-        margin: auto;
-    }
+  button {
+    max-width: 10em;
+    margin: auto;
+  }
 }
 
 .error {
-    color: red;
-    grid-column: 2;
+  color: red;
+  grid-column: 2;
 }
 
 /* media queries */
 @media (width <= 768px) {
-    /* display each element in its own row */
-    .basic-grid {
-        label {
-            text-align: left;
-        }
+  /* display each element in its own row */
+  .basic-grid {
+    label {
+      text-align: left;
     }
+  }
 }
