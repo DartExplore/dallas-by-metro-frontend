@@ -8,12 +8,12 @@ interface DestinationProps {
 }
 
 function Destination({image, name, station, index}: DestinationProps) {
-    const imageSrc = '/src/components/assets/' + image;
+    const imageURL = new URL('../assets/'+image, import.meta.url).href;
     const altImageText = 'Picture of ' + name;
     const color = "destination-item " + (index % 2 === 0 ? "yellow" : "purple"); // pick color based on index
     return <>
         <div className={color}>
-            <img src={imageSrc} alt={altImageText}></img>
+            <img src={imageURL} alt={altImageText}></img>
             <p>{name}</p>
             <div id="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
