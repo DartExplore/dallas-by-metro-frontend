@@ -1,6 +1,6 @@
 import './InputForm.scss';
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
-import { useEffect, useState } from 'react';
+import {ErrorMessage, Field, Form, Formik, useFormikContext} from 'formik';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Amenity from '../interfaces/Amenity';
 import PointOfInterest from '../interfaces/PointOfInterest';

@@ -1,8 +1,7 @@
 import './App.scss';
 import Card from '../Card/Card.tsx';
-import DestinationContainer from '../DestinationContainer/DestinationContainer.tsx';
+import DestinationContainer, {DestinationInfo} from '../DestinationContainer/DestinationContainer.tsx';
 import InputForm from '../InputForm/InputForm.tsx';
-import { DestinationInfo } from '../DestinationContainer/DestinationContainer.tsx';
 import att from '../../assets/att_disc2.jpg';
 import skyline_art from '../../assets/skyline_art.png';
 
