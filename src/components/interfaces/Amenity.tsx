@@ -1,6 +1,6 @@
 interface Amenity {
-    amenityId: number,
-    amenity: string
+  amenityId: number;
+  amenity: string;
 }
 
 export default Amenity;
