@@ -1,6 +1,6 @@
 $background-color: #f1cd01;
 $secondary-color: #604675;
-$beige: #F5F5DC;
+$beige: #f5f5dc;
 
 .destination-item {
   width: 80%;
@@ -11,7 +11,10 @@ $beige: #F5F5DC;
   margin: auto;
   transition: scale 1s;
 
-  #logo, svg, p, img {
+  #logo,
+  svg,
+  p,
+  img {
     display: flex;
     margin: auto;
   }
