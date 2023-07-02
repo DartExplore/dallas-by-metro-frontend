@@ -23,8 +23,13 @@ img {
 
 /* grid styling */
 .basic-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.basic-grid > * {
+  flex: 1;
+  min-width: 300px;
 }
 
 /* form styling */
