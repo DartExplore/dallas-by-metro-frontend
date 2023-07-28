@@ -1,3 +1,11 @@
+/* form styling */
+form {
+  /* vertically centered */
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 .basic-grid {
   label {
     text-align: right;
@@ -32,7 +40,7 @@
 }
 
 /* media queries */
-@media (width <= 768px) {
+@media (width <=768px) {
   /* display each element in its own row */
   .basic-grid {
     label {
