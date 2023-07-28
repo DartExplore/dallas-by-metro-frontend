@@ -88,13 +88,13 @@ const InputForm = () => {
             onTypeChange={(newType: string) => setType(newType)}
           />
           <div className="form-container">
-            <div className="basic-grid form-element">
+            <div className="form-grid form-element">
               <label htmlFor="walk">Walk (minutes):</label>
               <Field type="number" id="walk" name="walk" />
               <ErrorMessage name="walk" component="div" className="error" />
             </div>
 
-            <div className="basic-grid form-element">
+            <div className="form-grid form-element">
               <label htmlFor="type">Type:</label>
               <Field as="select" id="type" name="type">
                 <option value="">Any</option>
@@ -109,7 +109,7 @@ const InputForm = () => {
               </Field>
             </div>
 
-            <div className="basic-grid form-element">
+            <div className="form-grid form-element">
               <label>Amenities:</label>
               <div className="amenities-container">
                 {amenities.map((amenity) => (

@@ -6,10 +6,15 @@ form {
   margin: auto;
 }
 
-.basic-grid {
+.form-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1em;
+  align-items: start;
+
   label {
     text-align: right;
-    margin-right: 1em;
+    min-width: 200px;
   }
 }
 
@@ -42,7 +47,11 @@ form {
 /* media queries */
 @media (width <=768px) {
   /* display each element in its own row */
-  .basic-grid {
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
     label {
       text-align: left;
     }
