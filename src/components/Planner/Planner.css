@@ -1,29 +1,10 @@
 :root {
   background-color: white;
-}
-
-.planner * {
-  min-width: unset;
-}
-
-main.planner {
-  padding-left: 1em;
-  padding-right: 1em;
+  text-align: center;
 }
 
 .planner header {
   height: unset;
   display: flex;
   justify-content: center;
-}
-
-.planner .form-container > * {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-}
-
-.planner button {
-  margin-left: auto;
-  margin-right: auto;
 }

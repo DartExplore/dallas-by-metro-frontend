@@ -1,28 +1,36 @@
-.basic-grid {
-  label {
-    text-align: right;
-    margin-right: 1em;
-  }
-}
-
-.form-element {
-  max-width: 40em;
-}
-
-.amenities-container {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-
 .form-container {
-  display: grid;
-  margin: auto;
-  gap: 1em;
+  display: inline-block;
+}
 
-  button {
-    max-width: 10em;
-    margin: auto;
+.form-option {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1em;
+  margin-bottom: 1em;
+
+  .label-text {
+    display: inline-block;
+    min-width: 8em;
+    text-align: right;
+  }
+
+  .amenities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  input,
+  select {
+    width: 100%;
+    max-width: 9em;
+    min-width: 2em;
   }
 }
 
@@ -31,12 +39,11 @@
   grid-column: 2;
 }
 
-/* media queries */
-@media (width <= 768px) {
-  /* display each element in its own row */
-  .basic-grid {
-    label {
-      text-align: left;
-    }
+@media (width <=768px) {
+  .amenities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding-right: 1em;
   }
 }

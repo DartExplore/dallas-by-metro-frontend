@@ -7,6 +7,7 @@ body {
   margin: 0;
 }
 
+h1,
 h2 {
   color: $secondary-color;
   text-align: center;
@@ -32,14 +33,6 @@ img {
   min-width: 300px;
 }
 
-/* form styling */
-form {
-  /* vertically centered */
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}
-
 /* header styling */
 header {
   height: 100vh;
@@ -57,7 +50,9 @@ header {
 #background-pattern {
   height: 30em;
 
-  --bg-pattern-size: 140px; /* control the size */
+  --bg-pattern-size: 140px;
+
+  /* control the size */
   $yellow: #f1cd01;
 
   --bg-pattern-gradient: #0000 52%, #170409 /* first color */ 54% 57%, #0000 59%;
@@ -71,25 +66,18 @@ header {
       calc(var(--bg-pattern-size) / 2) 0,
     radial-gradient(farthest-side at 133.33% 50%, var(--bg-pattern-gradient)),
     radial-gradient(farthest-side at 50% -33.33%, var(--bg-pattern-gradient)),
-    $yellow; /* second color */
+    $yellow;
+
+  /* second color */
 
   background-size: calc(var(--bg-pattern-size) / 4.667) var(--bg-pattern-size),
     var(--bg-pattern-size) calc(var(--bg-pattern-size) / 4.667);
 }
 
-/* planner styling */
-#planner {
-  .basic-grid {
-    .map {
-      height: 30em;
-    }
-  }
-}
-
 /* footer styling */
 
 /* media queries */
-@media (width <= 768px) {
+@media (width <=768px) {
   /* display each element in its own row */
   .basic-grid {
     grid-template-columns: 1fr;

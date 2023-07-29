@@ -81,53 +81,59 @@ const InputForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validate={validate}
+        validateOnBlur={true}
+        validateOnChange={true}
       >
-        <Form>
+        <Form className="form-container">
           <FormObserver
             onWalkChange={(newWalk: number) => setWalkDistance(newWalk)}
             onTypeChange={(newType: string) => setType(newType)}
           />
-          <div className="form-container">
-            <div className="basic-grid form-element">
-              <label htmlFor="walk">Walk (minutes):</label>
-              <Field type="number" id="walk" name="walk" />
-              <ErrorMessage name="walk" component="div" className="error" />
-            </div>
+          <div className="form-option">
+            <label className="label-text" htmlFor="walk">
+              Walk (minutes):
+            </label>
+            <Field type="number" id="walk" name="walk" />
+            <ErrorMessage name="walk" component="div" className="error" />
+          </div>
 
-            <div className="basic-grid form-element">
-              <label htmlFor="type">Type:</label>
-              <Field as="select" id="type" name="type">
-                <option value="">Any</option>
-                {types.map((type) => (
-                  <option value={type}>
-                    {type
-                      .split("_")
-                      .map((s) => s.toLowerCase())
-                      .join(" ")}
-                  </option>
-                ))}
-              </Field>
-            </div>
+          <div className="form-option">
+            <label className="label-text" htmlFor="type">
+              Type:
+            </label>
+            <Field as="select" id="type" name="type">
+              <option value="">Any</option>
+              {types.map((type) => (
+                <option value={type}>
+                  {type
+                    .split("_")
+                    .map((s) => s.toLowerCase())
+                    .join(" ")}
+                </option>
+              ))}
+            </Field>
+          </div>
 
-            <div className="basic-grid form-element">
-              <label>Amenities:</label>
-              <div className="amenities-container">
-                {amenities.map((amenity) => (
-                  <label>
-                    <Field
-                      type="checkbox"
-                      name="amenity"
-                      value={"A" + amenity.amenityId}
-                    />
-                    {amenity.amenity
-                      .split("_")
-                      .map((s) => s.toLowerCase())
-                      .join(" ")}
-                  </label>
-                ))}
-              </div>
+          <div className="form-option">
+            <label className="label-text">Amenities:</label>
+            <div className="amenities-container">
+              {amenities.map((amenity) => (
+                <label>
+                  <Field
+                    type="checkbox"
+                    name="amenity"
+                    value={"A" + amenity.amenityId}
+                  />
+                  {amenity.amenity
+                    .split("_")
+                    .map((s) => s.toLowerCase())
+                    .join(" ")}
+                </label>
+              ))}
             </div>
+          </div>
 
+          <div>
             <button type="submit">Submit</button>
           </div>
         </Form>
