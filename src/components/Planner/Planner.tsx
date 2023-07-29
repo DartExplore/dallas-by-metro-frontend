@@ -5,7 +5,7 @@ const Planner = () => {
   return (
     <main className="planner">
       <header>
-        <h1>Find cool places</h1>
+        <h1>Find DARTable places</h1>
       </header>
       <InputForm />
     </main>

@@ -24,11 +24,6 @@
       flex-direction: column;
       align-items: center;
     }
-
-    .error {
-      color: red;
-      grid-column: 2;
-    }
   }
 
   input,
@@ -39,7 +34,12 @@
   }
 }
 
-@media (width <= 768px) {
+.error {
+  color: red;
+  grid-column: 2;
+}
+
+@media (width <=768px) {
   .amenities-container {
     display: grid;
     grid-template-columns: 1fr 1fr;

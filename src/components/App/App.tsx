@@ -48,7 +48,7 @@ function App() {
           <Card
             headerText="Explore Downtown"
             description="Download the GoPass app and take the train Downtown to enjoy all the sights and destinations that
-            Downtown has to offer without the hastle of driving and parking in the busiest streets of Dallas."
+            Downtown has to offer without the hassle of driving and parking in the busiest streets of Dallas."
             buttonText="Explore Downtown"
           />
         </section>
@@ -61,7 +61,7 @@ function App() {
         <section id="planner">
           <Card
             headerText="Create your own journey..."
-            description="With our carefully curated list you will find easily to get to and fun new locations."
+            description="With our carefully curated list you will be able to easily find fun new locations to get to by DART."
             buttonText=""
           />
 
