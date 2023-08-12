@@ -1,0 +1,13 @@
+.planner .places {
+  display: flex;
+  gap: 1em;
+  margin-bottom: auto;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+@media (width <= 575px) {
+  .planner .places {
+    justify-content: center;
+  }
+}
