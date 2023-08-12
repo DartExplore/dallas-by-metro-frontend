@@ -1,0 +1,83 @@
+import { useState, useEffect, useContext } from "react";
+import { FilterContext, ClientContext } from "../ClientContext/ClientContext";
+import PlaceCard from "../PlaceCard/PlaceCard";
+import PointOfInterest from "../interfaces/PointOfInterest";
+import Station from "../interfaces/Station";
+
+import "./Places.css";
+
+type ErrorType = string | { errorMessage: string };
+
+const Places = () => {
+  const [data, setData] = useState<Station[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<ErrorType | null>(null);
+  const { filter } = useContext(FilterContext);
+  const { client } = useContext(ClientContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const currentStationValue =
+          filter.currentStation === -1 ? undefined : filter.currentStation;
+        const maxStationConnectionsValue = currentStationValue
+          ? filter.maxStationConnections
+          : undefined;
+
+        const response = await client.getStationsByConnection(
+          currentStationValue,
+          maxStationConnectionsValue,
+          filter.amenityIds,
+          filter.types,
+          filter.maxWalkTime,
+          filter.returnStationsWithNoPOIs
+        );
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw data.errorMessage || "Unknown error";
+        }
+        setData(data);
+      } catch (error) {
+        console.error(error);
+        setError(
+          typeof error === "string" ? error : { errorMessage: "Unknown error" }
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [filter, client]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    const errorMessage = typeof error === "string" ? error : error.errorMessage;
+    return <div>Error loading data: {errorMessage}</div>;
+  }
+
+  return (
+    <div className="places">
+      {data.map((station) =>
+        station.pointsOfInterest.map((poi: PointOfInterest) => (
+          <PlaceCard
+            key={poi.poiId}
+            placeName={poi.name}
+            emoji="🌎" // I imagine we'll use the pic_url from the back end and the put emoji's in there
+            stationName={station.name}
+            title={poi.name}
+          />
+        ))
+      )}
+    </div>
+  );
+};
+
+export default Places;

@@ -1,0 +1,43 @@
+.places-filter {
+  min-width: 13em;
+  border: solid 1px;
+  padding: 1em;
+}
+
+.places-filter select,
+.places-filter input[type="number"] {
+  width: 8em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.filter-split div {
+  display: flex;
+  align-items: center;
+  min-width: 8.25em;
+}
+
+.filter-split input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+@media (width <= 575px) {
+  .filter-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: left;
+    gap: 2px;
+  }
+
+  .filter-group {
+    align-items: center;
+  }
+}

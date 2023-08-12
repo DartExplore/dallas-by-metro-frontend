@@ -3,8 +3,40 @@
   text-align: center;
 }
 
+.planner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+
 .planner header {
   height: unset;
   display: flex;
-  justify-content: center;
+}
+
+.planner-view {
+  display: flex;
+  gap: 1em;
+}
+
+.planner-container {
+  width: 100%;
+  max-width: 78em;
+}
+
+@media (width <= 575px) {
+  .planner header {
+    justify-content: center;
+  }
+
+  .planner-view {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
