@@ -62,6 +62,10 @@ const PlacesFilter = () => {
     setFilter(formState);
   };
 
+  console.log("filter:", filter);
+
+  console.log("setFilter:", formState);
+
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -170,6 +174,15 @@ const PlacesFilter = () => {
             type="number"
             name="maxStationConnections"
             value={formState.maxStationConnections}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="filter-group filter-split">
+          <label htmlFor="maxTransfers">Max Transfers:</label>
+          <input
+            type="number"
+            name="maxTransfers"
+            value={formState.maxTransfers}
             onChange={handleInputChange}
           />
         </div>

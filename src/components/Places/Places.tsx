@@ -30,6 +30,7 @@ const Places = () => {
         const response = await client.getStationsByConnection(
           currentStationValue,
           maxStationConnectionsValue,
+          filter.maxTransfers,
           filter.amenityIds,
           filter.types,
           filter.maxWalkTime,
