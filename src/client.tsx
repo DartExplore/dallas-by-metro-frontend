@@ -12,12 +12,14 @@ class DBMClient {
   getStationsByConnection(
     currentStation?: number,
     maxStationConnections?: number,
+    maxTransfers?: number,
     amenityIds?: string,
     types?: string,
     maxWalkTime?: number,
     returnStationsWithNoPOIs = false
   ) {
     const url = new URL(`${this.apiURL}/api/public/stations`);
+
     if (currentStation) {
       url.searchParams.append("currentStation", currentStation.toString());
     }
@@ -27,6 +29,10 @@ class DBMClient {
         "maxStationConnections",
         maxStationConnections.toString()
       );
+    }
+
+    if (maxTransfers) {
+      url.searchParams.append("maxTransfers", maxTransfers.toString());
     }
 
     if (amenityIds) {
@@ -45,6 +51,8 @@ class DBMClient {
       "returnStationsWithNoPOIs",
       returnStationsWithNoPOIs.toString()
     );
+
+    console.log(url.toString());
 
     return fetch(url.toString());
   }

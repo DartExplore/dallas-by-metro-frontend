@@ -10,11 +10,14 @@ const Planner = () => {
   const [filter, setFilter] = useState({
     currentStation: 0,
     maxStationConnections: 1,
+    maxTransfers: 0,
     amenityIds: "",
     types: "",
     maxWalkTime: 15,
     returnStationsWithNoPOIs: false,
   });
+
+  console.log(filter);
 
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>

@@ -17,6 +17,7 @@ export interface FilterContextType {
   filter: {
     currentStation: number;
     maxStationConnections: number;
+    maxTransfers: number;
     amenityIds: string;
     types: string;
     maxWalkTime: number;
@@ -29,6 +30,7 @@ export const FilterContext = createContext<FilterContextType>({
   filter: {
     currentStation: 0,
     maxStationConnections: 0,
+    maxTransfers: 0,
     amenityIds: "",
     types: "",
     maxWalkTime: 0,
