@@ -17,8 +17,6 @@ const Planner = () => {
     returnStationsWithNoPOIs: false,
   });
 
-  console.log(filter);
-
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>
       <main className="planner">

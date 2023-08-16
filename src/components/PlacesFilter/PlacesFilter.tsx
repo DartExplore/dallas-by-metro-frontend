@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { FilterContext } from "../ClientContext/ClientContext";
 import Station from "../interfaces/Station";
 import Amenity from "../interfaces/Amenity";
+import NearestStationSetter from "../NearestStationSetter/NearestStationSetter";
 import DBMClient from "../../client";
 import "./PlacesFilter.css";
 
@@ -61,10 +62,6 @@ const PlacesFilter = () => {
     event.preventDefault();
     setFilter(formState);
   };
-
-  console.log("filter:", filter);
-
-  console.log("setFilter:", formState);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -154,22 +151,30 @@ const PlacesFilter = () => {
       <form onSubmit={handleSubmit}>
         {error && <div className="error-message">{error}</div>}
         <div className="filter-group filter-split">
-          <label htmlFor="currentStation">Current Station:</label>
-          <select
-            name="currentStation"
-            value={formState.currentStation}
-            onChange={handleInputChange}
-          >
-            <option value={-1}>Anywhere</option>
-            {stations.map((station) => (
-              <option key={station.stationId} value={station.stationId}>
-                {station.name}
-              </option>
-            ))}
-          </select>
+          <label htmlFor="currentStation">Current Station</label>
+          <div>
+            <select
+              name="currentStation"
+              value={formState.currentStation}
+              onChange={handleInputChange}
+            >
+              <option value={-1}>Anywhere</option>
+              {stations.map((station) => (
+                <option key={station.stationId} value={station.stationId}>
+                  {station.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <NearestStationSetter
+            stations={stations}
+            onNearestStationFound={(stationId) =>
+              setFormState({ ...formState, currentStation: stationId })
+            }
+          />
         </div>
         <div className="filter-group filter-split">
-          <label htmlFor="maxStationConnections">Max Connections:</label>
+          <label htmlFor="maxStationConnections">Max Connections</label>
           <input
             type="number"
             name="maxStationConnections"
@@ -178,7 +183,7 @@ const PlacesFilter = () => {
           />
         </div>
         <div className="filter-group filter-split">
-          <label htmlFor="maxTransfers">Max Transfers:</label>
+          <label htmlFor="maxTransfers">Max Transfers</label>
           <input
             type="number"
             name="maxTransfers"
@@ -187,7 +192,7 @@ const PlacesFilter = () => {
           />
         </div>
         <div className="filter-group">
-          <label>Types:</label>
+          <label>Types</label>
           <div className="filter-split">
             <div>
               <label>
@@ -217,7 +222,7 @@ const PlacesFilter = () => {
           </div>
         </div>
         <div className="filter-group">
-          <label>Amenities:</label>
+          <label>Amenities</label>
           <div className="filter-split">
             <div>
               <label>
@@ -250,7 +255,7 @@ const PlacesFilter = () => {
           </div>
         </div>
         <div className="filter-group filter-split">
-          <label htmlFor="maxWalkTime">Max Walk Time:</label>
+          <label htmlFor="maxWalkTime">Max Walk Time</label>
           <input
             type="number"
             name="maxWalkTime"

@@ -52,8 +52,6 @@ class DBMClient {
       returnStationsWithNoPOIs.toString()
     );
 
-    console.log(url.toString());
-
     return fetch(url.toString());
   }
 
