@@ -21,7 +21,6 @@
 
 .filter-split div {
   display: flex;
-  align-items: center;
   min-width: 8.25em;
 }
 
@@ -39,5 +38,14 @@
 
   .filter-group {
     align-items: center;
+  }
+
+  div .station-finder-container {
+    display: inline;
+  }
+
+  div .loader {
+    display: inline;
+    margin-left: 1em;
   }
 }
