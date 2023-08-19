@@ -3,6 +3,7 @@ import { FilterContext, ClientContext } from "../ClientContext/ClientContext";
 import PlaceCard from "../PlaceCard/PlaceCard";
 import PointOfInterest from "../interfaces/PointOfInterest";
 import Station from "../interfaces/Station";
+import DirectionsModal from "../DirectionsModal/DirectionsModal";
 
 import "./Places.css";
 
@@ -14,6 +15,20 @@ const Places = () => {
   const [error, setError] = useState<ErrorType | null>(null);
   const { filter } = useContext(FilterContext);
   const { client } = useContext(ClientContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlaceName, setSelectedPlaceName] = useState("");
+  const [selectedStationName, setSelectedStationName] = useState("");
+
+  const handlePlaceClick = (placeName: string, stationName: string) => {
+    setSelectedPlaceName(placeName);
+    setSelectedStationName(stationName);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedPlaceName("");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,12 +86,19 @@ const Places = () => {
           <PlaceCard
             key={poi.poiId}
             placeName={poi.name}
+            onPlaceClick={() => handlePlaceClick(poi.name, station.name)}
             emoji="🌎" // I imagine we'll use the pic_url from the back end and the put emoji's in there
             stationName={station.name}
             title={poi.name}
           />
         ))
       )}
+      <DirectionsModal
+        show={isModalOpen}
+        onClose={handleCloseModal}
+        placeName={selectedPlaceName}
+        stationName={selectedStationName}
+      />
     </div>
   );
 };

@@ -6,16 +6,18 @@ interface PlaceCardProps {
   emoji: string;
   stationName: string;
   title: string;
+  onPlaceClick: () => void;
 }
 
 const PlaceCard: React.FC<PlaceCardProps> = ({
   placeName,
+  onPlaceClick,
   emoji,
   stationName,
   title,
 }) => {
   return (
-    <div className="place-card">
+    <div className="place-card" onClick={onPlaceClick}>
       <div className="name" title={title}>
         {placeName}
       </div>
