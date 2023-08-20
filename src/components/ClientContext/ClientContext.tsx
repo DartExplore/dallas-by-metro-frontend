@@ -40,3 +40,19 @@ export const FilterContext = createContext<FilterContextType>({
     throw new Error("setFilter function must be overridden by a Provider");
   },
 });
+
+export interface UserContextType {
+  user: {
+    currentStationName: string;
+  };
+  setUser: (user: UserContextType["user"]) => void;
+}
+
+export const UserContext = createContext<UserContextType>({
+  user: {
+    currentStationName: "",
+  },
+  setUser: () => {
+    throw new Error("setUser function must be overridden by a Provider");
+  },
+});

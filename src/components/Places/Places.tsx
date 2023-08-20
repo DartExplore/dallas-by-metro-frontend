@@ -1,5 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import { FilterContext, ClientContext } from "../ClientContext/ClientContext";
+import {
+  FilterContext,
+  ClientContext,
+  UserContext,
+} from "../ClientContext/ClientContext";
 import PlaceCard from "../PlaceCard/PlaceCard";
 import PointOfInterest from "../interfaces/PointOfInterest";
 import Station from "../interfaces/Station";
@@ -18,6 +22,7 @@ const Places = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlaceName, setSelectedPlaceName] = useState("");
   const [selectedStationName, setSelectedStationName] = useState("");
+  const { user } = useContext(UserContext);
 
   const handlePlaceClick = (placeName: string, stationName: string) => {
     setSelectedPlaceName(placeName);
@@ -98,6 +103,7 @@ const Places = () => {
         onClose={handleCloseModal}
         placeName={selectedPlaceName}
         stationName={selectedStationName}
+        currentStationName={user.currentStationName}
       />
     </div>
   );

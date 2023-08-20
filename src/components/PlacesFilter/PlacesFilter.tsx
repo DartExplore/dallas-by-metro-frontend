@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { FilterContext } from "../ClientContext/ClientContext";
+import { FilterContext, UserContext } from "../ClientContext/ClientContext";
 import Station from "../interfaces/Station";
 import Amenity from "../interfaces/Amenity";
 import NearestStationSetter from "../NearestStationSetter/NearestStationSetter";
@@ -19,6 +19,7 @@ const PlacesFilter = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectAllTypes, setSelectAllTypes] = useState(false);
   const [selectAllAmenities, setSelectAllAmenities] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,6 +75,15 @@ const PlacesFilter = () => {
 
     if (name === "currentStation") {
       newValue = parseInt(value, 10);
+
+      // Set currentStationName based on the selected stationId
+      const selectedStation = stations.find(
+        (station) => station.stationId === newValue
+      );
+      setUser({
+        ...user,
+        currentStationName: selectedStation ? selectedStation.name : "",
+      });
     }
 
     setFormState({
