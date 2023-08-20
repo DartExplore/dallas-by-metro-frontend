@@ -18,7 +18,6 @@ const PlacesFilter = () => {
   const [types, setTypes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectAllTypes, setSelectAllTypes] = useState(false);
-  const [selectAllAmenities, setSelectAllAmenities] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
@@ -94,9 +93,6 @@ const PlacesFilter = () => {
 
   const handleAmenityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    if (!checked) {
-      setSelectAllAmenities(false);
-    }
     let currentAmenityIds = formState.amenityIds.split(",").filter(Boolean);
     if (checked && !currentAmenityIds.includes(value)) {
       currentAmenityIds.push(value);
@@ -139,20 +135,6 @@ const PlacesFilter = () => {
     setFormState({
       ...formState,
       types: checked ? allTypes : "",
-    });
-  };
-
-  const handleSelectAllAmenitiesChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const checked = event.target.checked;
-    setSelectAllAmenities(checked);
-    const allAmenities = amenities
-      .map((amenity) => amenity.amenityId.toString())
-      .join(",");
-    setFormState({
-      ...formState,
-      amenityIds: checked ? allAmenities : "",
     });
   };
 
