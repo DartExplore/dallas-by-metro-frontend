@@ -234,18 +234,6 @@ const PlacesFilter = () => {
         <div className="filter-group">
           <label>Amenities</label>
           <div className="filter-split">
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  id="selectAllAmenities"
-                  name="selectAllAmenities"
-                  checked={selectAllAmenities}
-                  onChange={handleSelectAllAmenitiesChange}
-                />
-                Select All
-              </label>
-            </div>
             {amenities.map((amenity) => (
               <div>
                 <label key={amenity.amenityId}>
