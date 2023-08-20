@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { FilterContext } from "../ClientContext/ClientContext";
+import { FilterContext, UserContext } from "../ClientContext/ClientContext";
 import Station from "../interfaces/Station";
 import Amenity from "../interfaces/Amenity";
 import NearestStationSetter from "../NearestStationSetter/NearestStationSetter";
@@ -18,7 +18,7 @@ const PlacesFilter = () => {
   const [types, setTypes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectAllTypes, setSelectAllTypes] = useState(false);
-  const [selectAllAmenities, setSelectAllAmenities] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,6 +74,15 @@ const PlacesFilter = () => {
 
     if (name === "currentStation") {
       newValue = parseInt(value, 10);
+
+      // Set currentStationName based on the selected stationId
+      const selectedStation = stations.find(
+        (station) => station.stationId === newValue
+      );
+      setUser({
+        ...user,
+        currentStationName: selectedStation ? selectedStation.name : "",
+      });
     }
 
     setFormState({
@@ -84,9 +93,6 @@ const PlacesFilter = () => {
 
   const handleAmenityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    if (!checked) {
-      setSelectAllAmenities(false);
-    }
     let currentAmenityIds = formState.amenityIds.split(",").filter(Boolean);
     if (checked && !currentAmenityIds.includes(value)) {
       currentAmenityIds.push(value);
@@ -129,20 +135,6 @@ const PlacesFilter = () => {
     setFormState({
       ...formState,
       types: checked ? allTypes : "",
-    });
-  };
-
-  const handleSelectAllAmenitiesChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const checked = event.target.checked;
-    setSelectAllAmenities(checked);
-    const allAmenities = amenities
-      .map((amenity) => amenity.amenityId.toString())
-      .join(",");
-    setFormState({
-      ...formState,
-      amenityIds: checked ? allAmenities : "",
     });
   };
 
@@ -224,18 +216,6 @@ const PlacesFilter = () => {
         <div className="filter-group">
           <label>Amenities</label>
           <div className="filter-split">
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  id="selectAllAmenities"
-                  name="selectAllAmenities"
-                  checked={selectAllAmenities}
-                  onChange={handleSelectAllAmenitiesChange}
-                />
-                Select All
-              </label>
-            </div>
             {amenities.map((amenity) => (
               <div>
                 <label key={amenity.amenityId}>
