@@ -93,7 +93,12 @@ const PlacesFilter = () => {
 
   const handleAmenityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    let currentAmenityIds = formState.amenityIds.split(",").filter(Boolean);
+    // Convert the string into an array
+    let currentAmenityIds = formState.amenityIds
+      .split(",")
+      .filter(Boolean)
+      .map((id) => id.trim());
+
     if (checked && !currentAmenityIds.includes(value)) {
       currentAmenityIds.push(value);
     } else if (!checked) {
@@ -110,7 +115,12 @@ const PlacesFilter = () => {
     if (!checked) {
       setSelectAllTypes(false);
     }
-    let currentTypes = formState.types.split(",").filter(Boolean);
+    // Convert the string into an array
+    let currentTypes = formState.types
+      .split(",")
+      .filter(Boolean)
+      .map((type) => type.trim());
+
     if (checked && !currentTypes.includes(value)) {
       currentTypes.push(value);
     } else if (!checked) {
@@ -198,13 +208,16 @@ const PlacesFilter = () => {
               </label>
             </div>
             {types.map((type, index) => (
-              <div>
-                <label key={index}>
+              <div key={index}>
+                <label>
                   <input
                     type="checkbox"
                     name="types"
                     value={type}
-                    checked={formState.types.includes(type)}
+                    checked={formState.types
+                      .split(",")
+                      .map((t) => t.trim())
+                      .includes(type)}
                     onChange={handleTypeChange}
                   />
                   {capitalizeFirstLetter(type.replace(/_/g, " "))}
@@ -217,15 +230,16 @@ const PlacesFilter = () => {
           <label>Amenities</label>
           <div className="filter-split">
             {amenities.map((amenity) => (
-              <div>
-                <label key={amenity.amenityId}>
+              <div key={amenity.amenityId}>
+                <label>
                   <input
                     type="checkbox"
                     name="amenityIds"
                     value={amenity.amenityId}
-                    checked={formState.amenityIds.includes(
-                      amenity.amenityId.toString()
-                    )}
+                    checked={formState.amenityIds
+                      .split(",")
+                      .map((id) => id.trim())
+                      .includes(amenity.amenityId.toString())}
                     onChange={handleAmenityChange}
                   />
                   {capitalizeFirstLetter(amenity.amenity.replace(/_/g, " "))}
