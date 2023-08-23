@@ -14,9 +14,13 @@
 .modal-content {
   background-color: #fff;
   border: solid;
-  padding: 2em;
+  padding: 1.5em;
   width: 25em;
   max-width: 90%;
   box-shadow: 0 0 20px rgb(0 0 0 / 20%);
   border-radius: 8px;
+}
+
+.modal-content div {
+  padding-top: 1em;
 }
