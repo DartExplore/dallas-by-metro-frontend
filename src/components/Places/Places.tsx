@@ -84,6 +84,17 @@ const Places = () => {
     return <div>Error loading data: {errorMessage}</div>;
   }
 
+  const emojiMap: { [key: string]: string } = {
+    BAR: "🍻",
+    RESTAURANT: "🍴",
+    COFFEE_SHOP: "☕",
+    OTHER: "🎲",
+  };
+
+  const getEmojiByType = (type: string): string => {
+    return emojiMap[type] || "❓"; // returns a question mark if the type isn't found
+  };
+
   return (
     <div className="places">
       {data.map((station) =>
@@ -92,7 +103,7 @@ const Places = () => {
             key={poi.poiId}
             placeName={poi.name}
             onPlaceClick={() => handlePlaceClick(poi.name, station.name)}
-            emoji="🌎" // I imagine we'll use the pic_url from the back end and the put emoji's in there
+            emoji={getEmojiByType(poi.type)}
             stationName={station.name}
             title={poi.name}
           />
