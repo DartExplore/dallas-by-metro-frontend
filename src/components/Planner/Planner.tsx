@@ -8,7 +8,7 @@ import "../../css-reset.css";
 
 const Planner = () => {
   const [filter, setFilter] = useState({
-    currentStation: 0,
+    currentStation: -1,
     maxStationConnections: 1,
     maxTransfers: 0,
     amenityIds: "",
