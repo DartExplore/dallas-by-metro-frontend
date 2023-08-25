@@ -12,13 +12,18 @@ const client = new DBMClient(API_URL);
 
 const PlacesFilter = () => {
   const { filter, setFilter } = useContext(FilterContext);
-  const [formState, setFormState] = useState(filter);
+  const [formState, setFormState] = useState({
+    ...filter,
+    currentStation:
+      filter.currentStation !== undefined ? filter.currentStation : -1,
+  });
   const [stations, setStations] = useState<Station[]>([]);
   const [amenities, setAmenities] = useState<Amenity[]>([]);
   const [types, setTypes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectAllTypes, setSelectAllTypes] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const [maxStopsError, setMaxStopsError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,6 +65,15 @@ const PlacesFilter = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    // Check for negative maxStationConnections
+    if (formState.maxStationConnections < 0) {
+      setMaxStopsError("Must not be a negative number");
+      return;
+    } else {
+      setMaxStopsError(null);
+    }
+
     setFilter(formState);
   };
 
@@ -89,6 +103,11 @@ const PlacesFilter = () => {
       ...formState,
       [name]: newValue,
     });
+
+    // Reset the maxStopsError state
+    if (event.target.name === "maxStationConnections") {
+      setMaxStopsError(null);
+    }
   };
 
   const handleAmenityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -148,6 +167,16 @@ const PlacesFilter = () => {
     });
   };
 
+  const handleMaxTransfersChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = event.target.value;
+    setFormState({
+      ...formState,
+      maxTransfers: parseInt(value, 10),
+    });
+  };
+
   return (
     <div className="places-filter">
       <form onSubmit={handleSubmit}>
@@ -176,22 +205,53 @@ const PlacesFilter = () => {
           />
         </div>
         <div className="filter-group filter-split">
-          <label htmlFor="maxStationConnections">Max Connections</label>
+          <label htmlFor="maxStationConnections">Max Stops</label>
           <input
             type="number"
             name="maxStationConnections"
-            value={formState.maxStationConnections}
+            value={
+              formState.currentStation === -1
+                ? ""
+                : formState.maxStationConnections
+            }
+            placeholder="Select current station"
             onChange={handleInputChange}
+            disabled={formState.currentStation === -1}
+            title={
+              formState.currentStation === -1
+                ? "Please select a current station to enable this field."
+                : ""
+            }
           />
+          {maxStopsError && (
+            <span className="max-stops-error">{maxStopsError}</span>
+          )}
         </div>
         <div className="filter-group filter-split">
-          <label htmlFor="maxTransfers">Max Transfers</label>
-          <input
-            type="number"
+          <label htmlFor="maxTransfers">Allow Transfer</label>
+          <select
             name="maxTransfers"
-            value={formState.maxTransfers}
-            onChange={handleInputChange}
-          />
+            value={
+              formState.currentStation === -1
+                ? "prompt"
+                : formState.maxTransfers
+            }
+            onChange={handleMaxTransfersChange}
+            disabled={formState.currentStation === -1}
+            title={
+              formState.currentStation === -1
+                ? "Please select a current station to enable this field."
+                : ""
+            }
+          >
+            {formState.currentStation === -1 && (
+              <option value="prompt" disabled>
+                Select current station
+              </option>
+            )}
+            <option value={0}>No</option>
+            <option value={1}>Yes</option>
+          </select>
         </div>
         <div className="filter-group">
           <label>Types</label>

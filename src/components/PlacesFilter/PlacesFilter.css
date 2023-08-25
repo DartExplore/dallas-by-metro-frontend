@@ -1,7 +1,9 @@
 .places-filter {
   min-width: 13em;
+  max-width: 13em;
   border: solid 1px;
   padding: 1em;
+  align-self: flex-start;
 }
 
 .places-filter select,
@@ -26,6 +28,22 @@
 
 .filter-split input[type="checkbox"] {
   margin-right: 5px;
+}
+
+.max-stops-error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  word-wrap: break-word;
+  display: block;
+  width: 75%;
+  box-sizing: border-box;
+}
+
+input[disabled],
+select[disabled] {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
 }
 
 @media (width <= 575px) {
