@@ -190,11 +190,14 @@ const PlacesFilter = () => {
               onChange={handleInputChange}
             >
               <option value={-1}>Anywhere</option>
-              {stations.map((station) => (
-                <option key={station.stationId} value={station.stationId}>
-                  {station.name}
-                </option>
-              ))}
+              {stations
+                .slice() // Create a shallow copy to avoid mutating the original array
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((station) => (
+                  <option key={station.stationId} value={station.stationId}>
+                    {station.name}
+                  </option>
+                ))}
             </select>
           </div>
           <NearestStationSetter

@@ -88,7 +88,7 @@ const Places = () => {
     BAR: "🍻",
     RESTAURANT: "🍴",
     COFFEE_SHOP: "☕",
-    OTHER: "🎲",
+    OTHER: "✨",
   };
 
   const getEmojiByType = (type: string): string => {
